@@ -27,7 +27,7 @@ class ErxesButton extends Component {
 
     (() => {
       const script = document.createElement('script');
-      script.src = 'http://localhost:7020/static/widget.js';
+      script.src = process.env.REACT_APP_WIDGET_URL || 'http://localhost:7020/static/widget.js';
       script.async = true;
 
       const entry = document.getElementsByTagName('script')[0];
