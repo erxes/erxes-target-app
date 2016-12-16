@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Row, Col, Button } from 'reactstrap';
 import loader from './ring.svg';
 
 
@@ -22,7 +23,7 @@ class Login extends Component {
   goToApp(e) {
     e.preventDefault();
 
-    localStorage.setItem('erxes_demoapp_user', JSON.stringify(this.state.user));
+    localStorage.setItem('erxes_user', JSON.stringify(this.state.user));
     this.props.router.replace('/');
   }
 
@@ -35,37 +36,36 @@ class Login extends Component {
 
     return (
       <div>
+        <div className="small-text mb-2">Login as</div>
         <img
-          className="picture"
+          className="picture mb-1"
           src={user.picture.large}
           alt={user.name.first}
         />
-        <div className="small-text">Login as</div>
         <div className="name">
           {user.name.first} {user.name.last}
         </div>
-        <a
-          className="erxes-btn block"
-          href="#"
+        <div className="small-text mb-2">{user.email}</div>
+        <Button
           onClick={this.goToApp}
+          color="primary"
+          block
         >
-          Login
-        </a>
+          Login to <strong>getting started</strong>
+        </Button>
       </div>
     );
   }
 
   render() {
     return (
-      <div>
-        <h1>App for erxes demo</h1>
-
-        <div className="login-box">
-          {this.renderUser()}
-        </div>
-
-        <a href="http://erxes.io/" className="small-text">&laquo; Go to home page</a>
-      </div>
+      <Row>
+        <Col lg={{ size: 4, offset: 4 }}>
+          <div className="login-box">
+            {this.renderUser()}
+          </div>
+        </Col>
+      </Row>
     );
   }
 }
