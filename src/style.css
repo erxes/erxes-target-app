@@ -1,0 +1,84 @@
+body {
+  background-color: #e7e3ed;
+  margin: 0;
+  font-family: Arial;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  margin: 80px 0 120px;
+  text-align: center;
+  color: #7754b3;
+  font-weight: normal;
+}
+
+.login-box {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.picture {
+  width: 128px;
+  height: 128px;
+  border-radius: 80px;
+  margin: -70px auto 0;
+  border: 3px solid #e7e3ed;
+  padding: 3px;
+  background-color: #fff;
+}
+
+.small-text {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  margin-top: 20px;
+  display: block;
+  text-decoration: none;
+}
+
+.name {
+  font-size: 26px;
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+
+.erxes-btn {
+  background-color: #7754b3;
+  padding: 14px;
+  text-align: center;
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.erxes-btn:hover {
+  background-color: #8461b5;
+}
+
+.erxes-btn.block {
+  display: block;
+}
+
+.app-layout {
+  text-align: center;
+  height: 100%;
+}
+
+.app-layout > div {
+  font-size: 60px;
+  margin: 200px 0 40px;
+}
+
+.greeting {
+  text-transform: capitalize;
+}
