@@ -9,7 +9,7 @@ function App({ user }) {
         <h2 className="mb-2">Instruction:</h2>
         <ul>
           <li>Click Erxes help button below.</li>
-          <li>Click on the + button to create new message.</li>
+          <li>To create a new message click on the [+] button.</li>
           <li>Send a message.</li>
           <li>
             <a href="https://demo.erxes.io/" target="_blank">Go to the Erxes app</a>{' '}

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Container, Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router';
-import ErxesButton from './ErxesButton.jsx';
+import { withRouter, Link } from 'react-router-dom';
+import ErxesButton from './ErxesButton';
 
 
-function Layout({ router, children }) {
+export default withRouter(({ history, children }) => {
   const user = JSON.parse(localStorage.getItem('erxes_user'));
 
   function logout(e) {
     e.preventDefault();
     localStorage.removeItem('erxes_user');
-    router.replace('/login');
+    history.push('/login');
   }
 
   function renderErxesButton() {
@@ -26,9 +26,9 @@ function Layout({ router, children }) {
 
   function renderAuthRelatedMenus() {
     return (
-      <Nav navbar className="float-xs-right">
+      <Nav navbar className="ml-auto">
         <NavItem>
-          <NavLink href="#" onClick={logout}>Logout</NavLink>
+          <NavLink tag={Link} to="#" onClick={logout}>Logout</NavLink>
         </NavItem>
         <NavItem>
           <NavLink>
@@ -48,12 +48,12 @@ function Layout({ router, children }) {
 
   return (
     <div>
-      <Navbar dark className="mb-3">
+      <Navbar className="mb-3" inverse toggleable>
         <Container>
           <NavbarBrand tag={Link} to="/">Sample app for Erxes</NavbarBrand>
           <Nav navbar>
             <NavItem>
-              <NavLink href="https://erxes.io" target="_blank">&laquo; Go to Erxes.io</NavLink>
+              <NavLink to="https://erxes.io" target="_blank" tag={Link}>&laquo; Go to Erxes.io</NavLink>
             </NavItem>
           </Nav>
           {user ? renderAuthRelatedMenus() : null}
@@ -67,6 +67,4 @@ function Layout({ router, children }) {
       {user ? renderErxesButton() : null}
     </div>
   );
-}
-
-export default Layout;
+});

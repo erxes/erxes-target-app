@@ -1,4 +1,5 @@
-import { PropTypes, Component } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 
 const isDomAvailable = !!(window && window.document && window.document.createElement);
@@ -27,7 +28,7 @@ class ErxesButton extends Component {
 
     (() => {
       const script = document.createElement('script');
-      script.src = process.env.REACT_APP_WIDGET_URL || 'http://localhost:7020/static/widget.js';
+      script.src = process.env.REACT_APP_WIDGET_URL;
       script.async = true;
 
       const entry = document.getElementsByTagName('script')[0];
@@ -42,7 +43,10 @@ class ErxesButton extends Component {
   componentWillUnmount() {
     if (!isDomAvailable) return false;
 
-    window.Erxes.disconnect({ dom: window });
+    const iframe = window.document.getElementById('erxes-iframe');
+    const script = document.querySelector(`script[src="${process.env.REACT_APP_WIDGET_URL}"]`);
+    document.body.removeChild(iframe);
+    document.body.removeChild(script);
 
     return delete window.erxesSettings;
   }

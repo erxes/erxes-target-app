@@ -59,6 +59,7 @@ a:focus {
   color: #fff;
   background-color: #7754b3;
   border-color: #7754b3;
+  cursor: pointer;
 }
 
 .btn-primary:hover,

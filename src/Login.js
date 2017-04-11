@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 import loader from './ring.svg';
 
 
@@ -13,18 +14,23 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    fetch('https://randomuser.me/api/?inc=name,email,registered,picture&nat=us,gb')
-      .then(response => response.json())
-      .then((data) => {
-        this.setState({ user: data.results[0] });
-      });
+    if (!localStorage.getItem('erxes_user')) {
+      fetch('https://randomuser.me/api/?inc=name,email,registered,picture&nat=us,gb')
+        .then(response => response.json())
+        .then((data) => {
+          const user = data.results[0];
+          user.name.first = user.name.first.charAt(0).toUpperCase() + user.name.first.slice(1);
+          user.name.last = user.name.last.charAt(0).toUpperCase() + user.name.last.slice(1);
+          this.setState({ user });
+        });
+    }
   }
 
   goToApp(e) {
     e.preventDefault();
 
     localStorage.setItem('erxes_user', JSON.stringify(this.state.user));
-    this.props.router.replace('/');
+    this.setState({ redirectToReferrer: true });
   }
 
   renderUser() {
@@ -45,7 +51,7 @@ class Login extends Component {
         <div className="name">
           {user.name.first} {user.name.last}
         </div>
-        <div className="small-text mb-2">{user.email}</div>
+        <div className="small-text mb-3">{user.email}</div>
         <Button
           onClick={this.goToApp}
           color="primary"
@@ -58,6 +64,17 @@ class Login extends Component {
   }
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { redirectToReferrer } = this.state;
+
+    if (redirectToReferrer) {
+      return <Redirect to={from} />;
+    }
+
+    if (localStorage.getItem('erxes_user')) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <Row>
         <Col lg={{ size: 4, offset: 4 }}>
