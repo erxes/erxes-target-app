@@ -20,10 +20,12 @@ class ErxesButton extends Component {
     }
 
     window.erxesSettings = {
-      email: props.email,
-      name: props.name,
-      brand_id: props.brandId,
-      created_at: props.memberSince,
+      messenger: {
+        email: props.email,
+        name: props.name,
+        brand_id: props.brandId,
+        created_at: props.memberSince,
+      },
     };
 
     (() => {
@@ -43,7 +45,7 @@ class ErxesButton extends Component {
   componentWillUnmount() {
     if (!isDomAvailable) return false;
 
-    const iframe = window.document.getElementById('erxes-iframe');
+    const iframe = document.getElementById('erxes-messenger-container');
     const script = document.querySelector(`script[src="${process.env.REACT_APP_WIDGET_URL}"]`);
     document.body.removeChild(iframe);
     document.body.removeChild(script);
