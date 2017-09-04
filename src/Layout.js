@@ -55,6 +55,9 @@ export default withRouter(({ history, children }) => {
             <NavItem>
               <NavLink to="https://erxes.io" target="_blank" tag={Link}>&laquo; Go to Erxes.io</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink to="/knowledgebase" target="_blank" tag={Link}>Try knowledge base</NavLink>
+            </NavItem>
           </Nav>
           {user ? renderAuthRelatedMenus() : null}
         </Container>

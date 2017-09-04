@@ -2,6 +2,7 @@
   "name": "erxes-target-app",
   "version": "0.1.0",
   "devDependencies": {
+    "env-cmd": "^5.1.0",
     "react-scripts": "0.9.5"
   },
   "dependencies": {
