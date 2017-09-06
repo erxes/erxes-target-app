@@ -71,3 +71,7 @@ a:focus {
   outline: 0;
   opacity: .9;
 }
+
+.embed-container {
+  height: 800px;
+}
