@@ -7,11 +7,11 @@ import Login from './Login';
 import KnowledgeBase from './KnowledgeBase';
 import './style.css';
 
-
 const PrivateRoute = ({ component: Component, ...rest }) => {
+  const user = JSON.parse(localStorage.getItem('erxes_user'));
   return (<Route {...rest} render={props => (
-    localStorage.getItem('erxes_user')
-      ? <Component {...props} />
+    user
+      ? <Component {...props} user={user} />
       : <Redirect to={{ pathname: '/login', state: { from: props.location }}} />
   )}/>);
 }

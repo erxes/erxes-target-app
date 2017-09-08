@@ -1,8 +1,19 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
-
+import ErxesButton from './ErxesButton';
 
 function App({ user }) {
+  function renderErxesButton(user) {
+    return (
+      <ErxesButton
+        brandId={process.env.REACT_APP_BRAND_ID}
+        email={user.email}
+        name={`${user.name.first} ${user.name.last}`}
+        memberSince={new Date(user.registered).getTime()}
+      />
+    );
+  }
+
   return (
     <Row>
       <Col>
@@ -18,6 +29,8 @@ function App({ user }) {
           <li>You can find your sent messages in the Inbox.</li>
         </ul>
       </Col>
+
+      {user ? renderErxesButton(user) : null}
     </Row>
   );
 }

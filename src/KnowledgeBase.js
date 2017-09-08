@@ -6,9 +6,6 @@ class KnowledgeBase extends Component {
       knowledgeBase: {
         topic_id: process.env.REACT_APP_TOPIC_ID,
       },
-      messenger: {
-        brand_id: process.env.REACT_APP_BRAND_ID,
-      },
     };
 
     (() => {
