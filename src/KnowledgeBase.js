@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 
-
 class KnowledgeBase extends Component {
-
   componentDidMount() {
     window.erxesSettings = {
       knowledgeBase: {
-        topic_id: "RzR4mZuwtYLQXhaoT",
+        topic_id: process.env.REACT_APP_TOPIC_ID,
       },
       messenger: {
-        brand_id: "jJFPED",
+        brand_id: process.env.REACT_APP_BRAND_ID,
       },
     };
 
