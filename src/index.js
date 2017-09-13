@@ -1,25 +1,28 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Layout from './Layout';
 import App from './App';
 import Login from './Login';
+import LiveRoom from './LiveRoom';
 import './style.css';
 
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    localStorage.getItem('erxes_user')
-      ? <Component {...props} />
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const user = JSON.parse(localStorage.getItem('erxes_user'));
+  return (<Route {...rest} render={props => (
+    user
+      ? <Component {...props} user={user} />
       : <Redirect to={{ pathname: '/login', state: { from: props.location }}} />
-  )}/>
-)
+  )}/>);
+}
 
 ReactDOM.render((
   <Router>
     <Layout>
       <PrivateRoute exact path="/" component={App} />
       <Route path="/login" component={Login} />
+      <Route path="/live-room" component={LiveRoom} />
     </Layout>
   </Router>
 ), document.getElementById('root'));

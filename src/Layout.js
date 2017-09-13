@@ -1,8 +1,6 @@
 import React from 'react';
 import { Container, Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { withRouter, Link } from 'react-router-dom';
-import ErxesButton from './ErxesButton';
-
 
 export default withRouter(({ history, children }) => {
   const user = JSON.parse(localStorage.getItem('erxes_user'));
@@ -11,17 +9,6 @@ export default withRouter(({ history, children }) => {
     e.preventDefault();
     localStorage.removeItem('erxes_user');
     history.push('/login');
-  }
-
-  function renderErxesButton() {
-    return (
-      <ErxesButton
-        brandId={process.env.REACT_APP_BRAND_ID}
-        email={user.email}
-        name={`${user.name.first} ${user.name.last}`}
-        memberSince={new Date(user.registered).getTime()}
-      />
-    );
   }
 
   function renderAuthRelatedMenus() {
@@ -55,6 +42,9 @@ export default withRouter(({ history, children }) => {
             <NavItem>
               <NavLink to="https://erxes.io" target="_blank" tag={Link}>&laquo; Go to Erxes.io</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink to="/live-room" target="_blank" tag={Link}>Try video calls</NavLink>
+            </NavItem>
           </Nav>
           {user ? renderAuthRelatedMenus() : null}
         </Container>
@@ -63,8 +53,6 @@ export default withRouter(({ history, children }) => {
       <Container>
         {React.Children.map(children, child => React.cloneElement(child, { user }))}
       </Container>
-
-      {user ? renderErxesButton() : null}
     </div>
   );
 });
