@@ -6,20 +6,26 @@ import App from './App';
 import Login from './Login';
 import './style.css';
 
-
 const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    localStorage.getItem('erxes_user')
-      ? <Component {...props} />
-      : <Redirect to={{ pathname: '/login', state: { from: props.location }}} />
-  )}/>
-)
+  <Route
+    {...rest}
+    render={props =>
+      localStorage.getItem('erxes_user') ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{ pathname: '/login', state: { from: props.location } }}
+        />
+      )}
+  />
+);
 
-ReactDOM.render((
+ReactDOM.render(
   <Router>
     <Layout>
       <PrivateRoute exact path="/" component={App} />
       <Route path="/login" component={Login} />
     </Layout>
-  </Router>
-), document.getElementById('root'));
+  </Router>,
+  document.getElementById('root')
+);

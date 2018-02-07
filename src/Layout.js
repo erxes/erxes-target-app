@@ -1,8 +1,14 @@
 import React from 'react';
-import { Container, Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import {
+  Container,
+  Navbar,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from 'reactstrap';
 import { withRouter, Link } from 'react-router-dom';
 import ErxesButton from './ErxesButton';
-
 
 export default withRouter(({ history, children }) => {
   const user = JSON.parse(localStorage.getItem('erxes_user'));
@@ -28,10 +34,7 @@ export default withRouter(({ history, children }) => {
     return (
       <Nav navbar className="ml-auto">
         <NavItem>
-          <NavLink tag={Link} to="#" onClick={logout}>Logout</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink>
+          <NavLink className="nav-user-link">
             <div className="user-profile">
               <img
                 src={user.picture.thumbnail}
@@ -50,10 +53,17 @@ export default withRouter(({ history, children }) => {
     <div>
       <Navbar className="mb-3" inverse toggleable>
         <Container>
-          <NavbarBrand tag={Link} to="/">Sample app for Erxes</NavbarBrand>
           <Nav navbar>
             <NavItem>
-              <NavLink to="https://erxes.io" target="_blank" tag={Link}>&laquo; Go to Erxes.io</NavLink>
+              {user ? (
+                <NavLink tag={Link} to="#" onClick={logout}>
+                  Logout
+                </NavLink>
+              ) : (
+                <NavLink to="https://erxes.io" target="_blank" tag={Link}>
+                  Go to home page
+                </NavLink>
+              )}
             </NavItem>
           </Nav>
           {user ? renderAuthRelatedMenus() : null}
@@ -61,7 +71,9 @@ export default withRouter(({ history, children }) => {
       </Navbar>
 
       <Container>
-        {React.Children.map(children, child => React.cloneElement(child, { user }))}
+        {React.Children.map(children, child =>
+          React.cloneElement(child, { user })
+        )}
       </Container>
 
       {user ? renderErxesButton() : null}

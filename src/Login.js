@@ -3,7 +3,6 @@ import { Row, Col, Button } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import loader from './ring.svg';
 
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -15,12 +14,16 @@ class Login extends Component {
 
   componentDidMount() {
     if (!localStorage.getItem('erxes_user')) {
-      fetch('https://randomuser.me/api/?inc=name,email,registered,picture&nat=us,gb')
+      fetch(
+        'https://randomuser.me/api/?inc=name,email,registered,picture&nat=us,gb'
+      )
         .then(response => response.json())
-        .then((data) => {
+        .then(data => {
           const user = data.results[0];
-          user.name.first = user.name.first.charAt(0).toUpperCase() + user.name.first.slice(1);
-          user.name.last = user.name.last.charAt(0).toUpperCase() + user.name.last.slice(1);
+          user.name.first =
+            user.name.first.charAt(0).toUpperCase() + user.name.first.slice(1);
+          user.name.last =
+            user.name.last.charAt(0).toUpperCase() + user.name.last.slice(1);
           this.setState({ user });
         });
     }
@@ -42,7 +45,6 @@ class Login extends Component {
 
     return (
       <div>
-        <div className="small-text mb-2">Login as</div>
         <img
           className="picture mb-1"
           src={user.picture.large}
@@ -52,11 +54,7 @@ class Login extends Component {
           {user.name.first} {user.name.last}
         </div>
         <div className="small-text mb-3">{user.email}</div>
-        <Button
-          onClick={this.goToApp}
-          color="primary"
-          block
-        >
+        <Button onClick={this.goToApp} color="primary" block>
           Login to <strong>getting started</strong>
         </Button>
       </div>
@@ -78,9 +76,7 @@ class Login extends Component {
     return (
       <Row>
         <Col lg={{ size: 4, offset: 4 }}>
-          <div className="login-box">
-            {this.renderUser()}
-          </div>
+          <div className="login-box">{this.renderUser()}</div>
         </Col>
       </Row>
     );

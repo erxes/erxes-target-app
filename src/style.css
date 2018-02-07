@@ -1,9 +1,21 @@
-body {
-  background-color: #e7e3ed;
-  -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+html {
+  height: 100%;
 }
-
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+  background-image: url('../public/sign2.png'), url('../public/sign-bg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom left, top left;
+  background-position-x: -100px, 0;
+  height: 100%;
+  background-color: #f3f3f3;
+}
+.clearfix {
+  clear: both;
+}
 a,
 a:hover,
 a:focus {
@@ -11,55 +23,73 @@ a:focus {
 }
 
 .navbar {
-  background-color: #7754b3;
+  background-color: #5629b6;
+  padding: 11px 15px;
+  height: 72px;
 }
 
 .user-profile {
-  font-weight: 500;
-  text-transform: capitalize;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .user-profile img {
-  margin-right: 5px;
-  width: 24px;
-  height: 24px;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
 }
-
-.login-box {
+.login-box,
+.instruction {
   background-color: #fff;
-  padding: 20px;
-  border-radius: 4px;
+  padding: 50px;
+  border-radius: 17px;
+  max-width: 340px;
+  margin: 0 auto;
+  margin-top: 30%;
+}
+.login-box {
   text-align: center;
 }
 
 .picture {
-  width: 128px;
-  height: 128px;
-  border-radius: 80px;
-  border: 2px solid #e7e3ed;
-  padding: 3px;
-  background-color: #fff;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
 }
 
 .small-text {
   text-transform: uppercase;
-  font-size: 12px;
-  color: #888;
+  font-size: 10px;
+  color: #31424e;
   text-align: center;
   display: block;
   text-decoration: none;
+  padding: 15px 0;
+  border-top: #ebebeb solid 1px;
+  border-bottom: #ebebeb solid 1px;
+  margin-bottom: 25px !important;
 }
 
 .name {
-  font-size: 26px;
-  text-transform: capitalize;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 25px 0;
+  color: #5629b6;
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #7754b3;
-  border-color: #7754b3;
+  background-color: #5629b6;
+  border: 0;
   cursor: pointer;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
 }
 
 .btn-primary:hover,
@@ -69,5 +99,63 @@ a:focus {
   background-color: #7754b3;
   border-color: #7754b3;
   outline: 0;
-  opacity: .9;
+  opacity: 0.9;
+}
+.navbar-nav {
+  display: inline-block;
+  margin-top: 7px;
+}
+.navbar-nav.ml-auto {
+  float: right;
+  margin-right: 50px;
+  margin-top: 0;
+}
+.navbar-inverse .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+}
+.navbar-inverse .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+.navbar-nav .nav-link {
+  display: inline-block;
+  font-size: 12px;
+  background-color: #5f34ba;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+.navbar-nav .nav-link.nav-user-link {
+  background-color: transparent;
+}
+.instruction h2 {
+  font-size: 18px;
+  font-weight: 900;
+  color: #5629b6;
+  padding-bottom: 25px;
+  margin-bottom: 25px !important;
+  border-bottom: #ebebeb solid 1px;
+}
+.instruction ul {
+  color: #787878;
+  font-size: 12px;
+  padding-left: 15px;
+}
+.instruction ul li {
+  margin-bottom: 10px;
+}
+@media (min-width: 576px) {
+  .navbar-toggleable .navbar-nav .nav-link {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+@media (max-width: 575px) {
+  .navbar-toggleable > .container {
+    width: 100%;
+  }
 }
