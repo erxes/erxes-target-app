@@ -142,8 +142,9 @@ a:focus {
 }
 .instruction ul {
   color: #787878;
-  font-size: 12px;
+  font-size: 13px;
   padding-left: 15px;
+  font-weight: normal;
 }
 .instruction ul li {
   margin-bottom: 10px;
