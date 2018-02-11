@@ -25,6 +25,10 @@ body::after {
   background-repeat: no-repeat;
   z-index: 1;
 }
+body > div {
+  position: relative;
+  z-index: 2;
+}
 .clearfix {
   clear: both;
 }
@@ -153,10 +157,6 @@ a:focus {
   padding-bottom: 25px;
   margin-bottom: 25px !important;
   border-bottom: #ebebeb solid 1px;
-}
-.instruction {
-  position: relative;
-  z-index: 2;
 }
 .instruction ul {
   color: #787878;
