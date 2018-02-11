@@ -23,6 +23,7 @@ body::after {
   top: 0;
   bottom: 40px;
   background-repeat: no-repeat;
+  z-index: 1;
 }
 .clearfix {
   clear: both;
@@ -153,6 +154,10 @@ a:focus {
   margin-bottom: 25px !important;
   border-bottom: #ebebeb solid 1px;
 }
+.instruction {
+  position: relative;
+  z-index: 2;
+}
 .instruction ul {
   color: #787878;
   font-size: 14px;
@@ -172,5 +177,18 @@ a:focus {
 @media (max-width: 575px) {
   .navbar-toggleable > .container {
     width: 100%;
+  }
+}
+@media (max-width: 420px) {
+  .navbar-nav.ml-auto {
+    margin-right: 0;
+  }
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .navbar-nav .nav-link {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
