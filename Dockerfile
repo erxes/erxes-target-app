@@ -1,4 +1,4 @@
-FROM node:8-slim as build-deps
+FROM node:10-slim as build-deps
 WORKDIR /erxes-target-app/
 COPY package.json yarn.lock ./
 RUN yarn
