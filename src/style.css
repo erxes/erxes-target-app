@@ -12,6 +12,7 @@ a:focus {
 
 .navbar {
   background-color: #7754b3;
+  height: 70px;
 }
 
 .user-profile {
