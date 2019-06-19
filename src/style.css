@@ -44,7 +44,7 @@ a:focus {
 .navbar {
   background-color: #5629b6;
   padding: 11px 15px;
-  height: 72px;
+  height: 70px;
 }
 
 .user-profile {
@@ -121,7 +121,7 @@ a:focus {
 }
 .navbar-nav {
   display: inline-block;
-  margin-top: 7px;
+  margin-top: 6px;
 }
 .navbar-nav.ml-auto {
   float: right;
