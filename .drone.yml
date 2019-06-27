@@ -1,12 +1,10 @@
 pipeline:
   build:
     image: node:10.16.0-slim
-    environment:
-      - CI=false
     commands:
       - yarn install
       - cp .env.sample .env
-      - yarn build
+      - CI="" yarn build
     when:
       branch:
         - demo
