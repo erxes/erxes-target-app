@@ -3,7 +3,7 @@ pipeline:
     image: node:10.16.0-slim
     commands:
       - yarn install
-      - mv .env.sample .env
+      - cp .env.sample .env
       - yarn build
     when:
       branch:
