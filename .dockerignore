@@ -1,4 +1,6 @@
 *.md
-.git
-.gitignore
-.drone.yml
+.git*
+Dockerfile*
+*.yml
+.dockerignore
+src
