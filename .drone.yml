@@ -5,6 +5,7 @@ pipeline:
       - yarn install
       - cp .env.sample .env
       - CI="" yarn build
+      # https://github.com/facebook/create-react-app/issues/2453
     when:
       branch:
         - demo
