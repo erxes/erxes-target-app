@@ -4,7 +4,7 @@ pipeline:
     commands:
       - yarn install
       - cp .env.sample .env
-      - yarn build
+      - CI=false yarn build
     when:
       branch:
         - demo
