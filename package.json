@@ -9,7 +9,7 @@
     "react": "^15.5.3",
     "react-addons-css-transition-group": "^15.5.2",
     "react-addons-transition-group": "^15.5.2",
-    "react-dom": "^15.5.3",
+    "react-dom": "^16.0.1",
     "react-router-dom": "^4.0.0",
     "reactstrap": "^4.5.0"
   },
